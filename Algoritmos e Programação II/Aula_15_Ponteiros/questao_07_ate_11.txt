@@ -1,0 +1,82 @@
+7. O que está acontecendo nesse código? O que são tais valores? E porque isso acontece?
+
+int a = 5;
+int *ptr = &a;
+
+for (int i = 0; i < 5; i++) {
+    cout << *ptr << endl;
+    ptr++;
+}
+
+R: Está sendo impresso no console o conteúdo armazenado nos espaços de memoria seguintes ao da variávael 'a'. Tais valores são lixo de memórias. Isso acontece pois 'a' é uma variável de um só elemento, não é um array.
+
+
+8. O que está acontecendo nesse código? O que são tais valores? E porque isso acontece?
+
+void printArray(int *arr, int size) {
+    for (int i = 0; i < 2*size; i++) {
+        cout << *arr << endl;
+        arr++;
+    }
+}
+
+int main(){
+    int arr[] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+    printArray(ptr,5);
+}
+
+R: Está sendo impresso o dobro de elementos do array. Os cinco primeiros elementos do array são impressos, e após isso, é impresso o conteúdo dos próximos cinco endereços de memória. Os cinco outros valores são lixo de memória. Isso acontece pois o teste do loop é i < 2*size e não i < size.
+
+
+9. Explique o resultado dos seguintes códigos. Porque as versões v1 e v2 apresentando resultados distintos?
+
+v1) 
+int x, y, *p;
+y = 0;
+p = &y;
+x = *p;
+x = 4;
+(*p)++;
+--x;
+(*p) += x;
+ cout << "x = " << x << ", y = " << y << ", *p = " << *p;
+
+v2)
+int x, y, *p;
+y = 0;
+p = &y;
+x = *p;   x=0
+x = 4;	  x=4
+*p++;	  nada?
+--x;	  x=3
+*p += x;  *p(ou y)=3
+ cout << "x = " << x << ", y = " << y << ", *p = " << *p;
+
+RV1: y recebe o valor de 0; p recebe o endereço de y; x recebe o valor de *p, ou seja, o valor de y, que é 0; x recebe o valor 4; o valor para qual p aponta é incrementado em uma unidade, y passa a valer 1; x é decrementado em uma unidade, passando a valer 3; o valor para qual p aponta é somado ao valor de x, ou seja, y = 1 + 3 = 4; ficando da seguinte maneira
+cout << "x = " << x << ", y = " << y << ", *p = " << *p; x=3; y=4; *p=4.
+
+RV2: x=3 y=3 *p=3?????
+
+
+10. Assumindo que o endereço de num foi atribuído a um ponteiro pnum, quais das seguintes expressões são verdadeiras?
+  a) num == &pnum 
+X b) num == *pnum
+  c) pnum == *num 
+X d) pnum == &num
+
+
+11. Considerando que: 
+
+int i = 3, j = 5; int *p = &i, *q = &j;
+
+Qual o valor das seguintes expressões:
+
+a) p == &i
+R: Verdadeiro
+
+b) *p - *q
+R: -2
+
+
+
