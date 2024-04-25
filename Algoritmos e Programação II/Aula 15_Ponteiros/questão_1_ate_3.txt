@@ -1,8 +1,0 @@
-1. Descreva o que é um ponteiro e como ele se difere de uma variável normal.
-R: O ponteiro serve para armazenar o endereço de memória de uma outra variável.
-
-2. Explique a diferença entre os operadores & e * em relação a ponteiros.
-R:O operador & sereve para mostrar o endereço da variável e o operador * aponta para a variavel
-
-3. Sendo *ptr um ponteiro, qual a diferença entre as instruções cout << ptr; e cout << &ptr;?
-R: ptr imprime o endereço da variavel armazenada e &ptr imprime o seu proprio endereço
